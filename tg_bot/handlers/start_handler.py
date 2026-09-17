@@ -42,16 +42,15 @@ async def start_handler(message: Message):
             user = await user_service.get_user_by_tg_id(tg_id=tg_id)
             if user is None:
                 await user_service.create_user(
-                tg_id=tg_id,
-                username=username,
-                first_name=first_name,
-                last_name=last_name
+                    tg_id=tg_id,
+                    username=username,
+                    first_name=first_name,
+                    last_name=last_name
                 )
-                await message.answer(start_text)
-
             await message.answer(start_text)
         except Exception as e:
-            logger.info(f"Ошибка {e}")
+            logger.error(f"Ошибка в start_handler: {e}")
+            await message.answer("Произошла ошибка при запуске бота. Попробуйте позже.")
 
 
 
