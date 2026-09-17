@@ -1,0 +1,16 @@
+# Telegram Bot
+aiogram>=3.7.0
+
+# Database
+sqlalchemy>=2.0.0
+alembic>=1.13.0
+aiosqlite>=0.19.0
+
+# HTTP Requests
+aiohttp>=3.9.0
+
+# Environment Variables
+python-dotenv>=1.0.0
+
+# Scheduler
+APScheduler>=3.10.0
