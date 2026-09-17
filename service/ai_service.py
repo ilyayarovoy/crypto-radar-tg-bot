@@ -111,14 +111,7 @@ class AIService:
 
     @staticmethod
     def build_report_payload(snapshots: list[MarketSnapshotModel]) -> dict:
-        """
-        Группирует плоский список снапшотов (из ReporteService.get_market_snapshots)
-        по монете и превращает в компактный временной ряд для ИИ.
 
-        В каждую точку ряда кладём только то, что реально меняется и полезно для
-        тренда (цена, % изменения, капа) — а не все 15 полей модели, иначе промпт
-        раздувается в 7 раз на статичных данных (name, image, ath и т.д.).
-        """
         grouped: dict[str, list[dict]] = defaultdict(list)
 
         for s in snapshots:
